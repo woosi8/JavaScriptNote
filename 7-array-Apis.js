@@ -22,7 +22,7 @@
 {
   const array = [1, 2, 3, 4, 5];
   // const result = array.splice(0, 2); // it doesn't make new array
-  const result2 = array.slice(2, 5); // from 2 to before 5 , it dosen't effect initial array
+  const result2 = array.(2, 5); // from 2 to before 5 , it dosen't effect initial array
 }
 
 // Class questions ////////////////////////////////////////
