@@ -107,3 +107,31 @@ emojis.find(x => x !== '🥑');  // returns an element : 해당하는 첫번째 
 emojis.reduce((acc, cur) => acc + '✨'); // returns a reduced value.
 emojis.slice(1, 2, '✨');  // 추출 (index1부터 2전까지(2는 포함안됨)) it dosen't affect the original array = return a new array
 emojis.splice(1, 2, '✨'); // 추출 삽입 (index1 부터 2까지 선택) remove 2 items from index 1 and add the ✨ emoji instead. : has an effect on the original array 
+
+
+// set,get
+115. Which method(s) will return the value 'Hello world!'?
+const myMap = new Map();
+const myFunc = () => 'greeting'; //key
+          //key     value
+myMap.set(myFunc, 'Hello world!');
+
+//1
+myMap.get('greeting');
+//2
+myMap.get(myFunc);
+//3
+myMap.get(() => 'greeting');
+
+// answer : 2
+When adding a key/value pair using the set method, the key will be the value of the first argument passed to the set function,
+and the value will be the second argument passed to the set function. 
+The key is the function () => 'greeting' in this case, and the value 'Hello world'. myMap is now { () => 'greeting' => 'Hello world!' }.
+
+// change an array to number
+// we can spread iterables to individual elements.
+117. Which of the following options will return 6?
+function sumValues(x, y, z) {
+  return x + y + z;
+}
+sumValues(...[1, 2, 3]);
