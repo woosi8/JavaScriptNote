@@ -114,7 +114,7 @@ emojis.splice(1, 2, '✨'); // 추출 삽입 (index1 부터 2까지 선택) remo
 const myMap = new Map();
 const myFunc = () => 'greeting'; //key
           //key     value
-myMap.set(myFunc, 'Hello world!');
+myMap.set(myFunc, 'Hello world!'); //Setters don't hold an actual value, their purpose is to modify properties. 
 
 //1
 myMap.get('greeting');
@@ -135,3 +135,60 @@ function sumValues(x, y, z) {
   return x + y + z;
 }
 sumValues(...[1, 2, 3]);
+
+// standard, dollor, 
+126. What's the output?
+function getFine(speed, amount) {
+  const formattedSpeed = new Intl.NumberFormat('en-US', {
+    style: 'unit',
+    unit: 'mile-per-hour'
+  }).format(speed);
+
+  const formattedAmount = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD'
+  }).format(amount);
+
+  return `The driver drove ${formattedSpeed} and has to pay ${formattedAmount}`;
+}
+
+console.log(getFine(130, 300))
+
+// Set,Get
+135. What's the output?
+const handler = {
+  set: () => console.log('Added a new property!'), 
+  get: () => console.log('Accessed a property!'), 
+};
+
+const person = new Proxy({}, handler); // With a Proxy object, we can add custom behavior to an object that we pass to it as the second argument
+
+
+person.name = 'Lydia'; //'set' gets invoked whenever we set property values,
+person.name; // 'get' gets invoked whenever we get (access) property values.
+};
+
+//object seal
+136. Which of the following will modify the person object?
+const person = { name: 'Lydia Hallie' };
+
+Object.seal(person);
+person.name = "Evan Bacon"
+console.log(person)
+With Object.seal we can prevent new properies from being added, or existing properties to be removed.
+However, you can still modify the value of existing properties.
+
+// freeze object
+137. Which of the following will modify the person object?
+const person = {
+  name: 'Lydia Hallie',
+  address: {
+    street: '100 Main St',
+  },
+};
+
+Object.freeze(person);
+person.address.street = "101 Main St";
+The Object.freeze method freezes an object. No properties can be added, modified, or removed.
+However, it only shallowly freezes the object, meaning that only direct properties on the object are frozen. If the property is another object,
+like address in this case, the properties on that object aren't frozen, and can be modified.
