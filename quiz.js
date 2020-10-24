@@ -107,7 +107,7 @@ emojis.find(x => x !== '🥑');  // returns an element : 해당하는 첫번째 
 emojis.reduce((acc, cur) => acc + '✨'); // returns a reduced value.
 emojis.slice(1, 2, '✨');  // 추출 (index1부터 2전까지(2는 포함안됨)) it dosen't affect the original array = return a new array
 emojis.splice(1, 2, '✨'); // 추출 삽입 (index1 부터 2까지 선택) remove 2 items from index 1 and add the ✨ emoji instead. : has an effect on the original array 
-
+emojis.unshift(); // 메서드는 새로운 요소를 배열의 맨 앞쪽에 추가하고, 새로운 길이를 반환합니다.
 
 // set,get
 115. Which method(s) will return the value 'Hello world!'?
@@ -192,3 +192,18 @@ person.address.street = "101 Main St";
 The Object.freeze method freezes an object. No properties can be added, modified, or removed.
 However, it only shallowly freezes the object, meaning that only direct properties on the object are frozen. If the property is another object,
 like address in this case, the properties on that object aren't frozen, and can be modified.
+
+139.
+In ES2020, we can add private variables in classes by using the #.
+
+140.  generator object
+
+150. ...object // spread operator ...
+
+151. this in a arrow function 
+An arrow function expression is a compact alternative to a traditional function expression, but is limited and can't be used in all situations.
+- Does not have its own bindings to this or super, and should not be used as methods.
+- Does not have arguments, or new.target keywords.
+- Not suitable for call, apply and bind methods, which generally rely on establishing a scope.
+- Can not be used as constructors.
+- Can not use yield, within its body.
