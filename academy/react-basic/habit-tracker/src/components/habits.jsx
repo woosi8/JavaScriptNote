@@ -9,12 +9,24 @@ class Habits extends Component {
             {id: 3, name:'Coding', count:0},
         ]
     };
+    handleIncrement =(habit) =>{
+        console.log(`${habit.name}`);
+    }
+    handleDecrement =(habit) =>{
+    }
+    handleDelete =(habit) =>{
+    }
     render() {
         return (
             <ul>
                 {this.state.habits.map(habit => (
-                     <Habit key ={habit.id} habit = {habit}/> //props 하기위해 habit(보라)을 전달받는거 habit으로 설정
-                    //  각각의 컴포넌트가 아이디를 가지고 있어야, 추가,변동시 성능개선을 위해 리액트가 다시 렌더링을 하지않느다
+                     <Habit 
+                     key ={habit.id} 
+                     habit = {habit}
+                     onIncrement = {this.handleIncrement}
+                     onDecrement = {this.handleDecrement}
+                     onDelete = {this.handleDelete}
+                     /> 
                 ))}          
             </ul>    
         );
