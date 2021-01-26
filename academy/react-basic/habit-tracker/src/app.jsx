@@ -11,7 +11,9 @@ class App extends Component {
         {id: 2, name:'Running', count:0},
         {id: 3, name:'Coding', count:0},
     ]
+
   };
+
   handleIncrement =(habit) =>{
     // habit.count++;
     // 리액트에서는 State 오브젝트를 직접 수정하는 것은 좋지않다
@@ -22,6 +24,7 @@ class App extends Component {
     // this.setState({ habits: habits}) // 아래처럼 생략가능 key:value 가 같은경우
     this.setState({habitse})
   }
+
   handleDecrement =(habit) =>{
     const habitMinus = [...this.state.habits]
     const index = habitMinus.indexOf(habit);
@@ -29,11 +32,12 @@ class App extends Component {
     habitMinus[index].count = counts < 0 ? 0 : counts;
     this.setState({habitMinus})
   }
+
   handleDelete =(habit) =>{
     const habitsDel = this.state.habits.filter(item => item.id !== habit.id);
     this.setState({habits : habitsDel});
-
   }
+    
 
   handleAdd =(name) =>{
     const habits = [...this.state.habits, {id: Date.now(), name : name, count:0}];
@@ -41,7 +45,7 @@ class App extends Component {
   }
 
   handleReset = () =>{
-    const deletedHabits =  [
+    const handleDelete = [
       {id: 1, name:'Reading', count:0},
       {id: 2, name:'Running', count:0},
       {id: 3, name:'Coding', count:0},
@@ -50,9 +54,11 @@ class App extends Component {
       habit.count = 0;
       return habit
       });
-      this.setState({habits : deletedHabits})
+      this.setState({habits : handleDelete})
     
   }
+
+
     render() {
       return (
       <>
