@@ -55,7 +55,6 @@ class App extends Component {
       return habit
       });
       this.setState({habits : handleDelete})
-    
   }
 
 
