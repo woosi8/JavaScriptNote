@@ -15,9 +15,11 @@ function App() {
 			requestOptions
 		)
 			.then((response) => response.json())
-			.then((result) => result.items.map(item => ({...item ,id: item.id.videoId})) // item의 id를 object가 아닌 primitive 문자열로 변환해준다.왜냐면 videoId는 오브젝트로 되어있기에
-			.then((items) => setVideos(items))
-			.catch((error) => console.log("error", error));
+			.then((result) =>
+				result.items.map((item) => ({ ...item, id: item.id.videoId }))
+			) // item의 id를 object가 아닌 primitive 문자열로 변환해준다.왜냐면 videoId는 오브젝트로 되어있기에
+			.then((items) => setVideos(items));
+		// .catch((error) => console.log("error", error));
 	};
 
 	// 콜백 (컴포넌트가 마운트 될때나 업데이트델때마다 호출되는 콜백함수)
